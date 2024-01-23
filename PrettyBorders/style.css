@@ -1,0 +1,77 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    color-scheme: dark light;
+}
+
+body {
+    font-family: system-ui;
+    font-size: 1.5rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.wrapper {
+    max-width: 50rem;
+    margin-left: auto;
+    margin-right: auto;
+    /* Or margin-inline */
+    padding-inline: 1rem;
+}
+
+.site-title {
+    font-size: 5rem;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2.5rem;
+}
+
+section {
+    /* -block acts like top and bottom */
+    /* The idea is add space in each section for the borders */
+    padding-block: 5rem;
+}
+
+
+/* Now lets work in each section */
+.diagonal {
+    /* customizable stuff */
+    --skew-angle: 3deg;
+    --background: 
+        linear-gradient(
+            45deg,
+            #12c2e9,
+            #c471ed,
+            #f64f59
+        );
+
+
+    position: relative;
+    /* This isolation keeps the z-index just in 
+       the diagonal.*/
+    isolation: isolate;
+}
+
+/* This is one way to do it. The other could be 
+   skewing the element and then unskewing the text. */
+.diagonal::after {
+    content: '';
+    background: var(--background);
+    /* We use position absolute in conjunction with 
+       relative in the element to make sure the pseudo
+       element stays in place. */
+    position: absolute;
+    z-index: -1;
+    /* Inset replaces top bottom left right */
+    inset: 0;
+    transform: skewY(var(--skew-angle));
+    
+}
+
+
