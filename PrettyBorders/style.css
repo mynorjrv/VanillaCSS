@@ -4,11 +4,19 @@
     box-sizing: border-box;
 }
 
-html {
-    color-scheme: dark light;
+:root {
+    --body-bg: hsl(0, 0%, 13%);
 }
 
+/* With the background color added, this is not
+   necessary anymore. */
+/* html {
+    color-scheme: dark light;
+} */
+
 body {
+    background: var(--body-bg);
+    color: white;
     font-family: system-ui;
     font-size: 1.5rem;
     line-height: 1.5;
@@ -75,3 +83,111 @@ section {
 }
 
 
+
+/* A change to spikes section */
+.maskgradient {
+    --spike-color: var(--body-bg);
+    /* var(--body-bg); */
+    /* This controls the size of the mask 
+       the idea is to match the mask size 
+       with the before/after strip size*/
+    --spike-width: 50px;
+    --spike-height: 60px;
+
+    position: relative;
+    color: black;
+    background: 
+        linear-gradient(
+            to right,
+            #fdc830,
+            #f37335
+        );
+}
+
+.maskgradient::before,
+.maskgradient::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: var(--spike-height);
+    background: var(--spike-color);
+    /* The webkit prefix is added to work with chrome */
+    -webkit-mask-image: linear-gradient(black, transparent);
+    mask-image: linear-gradient(black, transparent);
+    /* -webkit-mask-size: 
+        var(--spike-width) var(--spike-height); */
+    /* mask-size: 
+        var(--spike-width) var(--spike-height); */
+}
+
+.maskgradient::before {
+    top: 0;
+}
+
+.maskgradient::after {
+    bottom: 0;
+    transform: rotate(-0.5turn);
+}
+
+
+
+/* Spikes section */
+.spikes {
+    --spike-color: purple;
+    /* var(--body-bg); */
+    /* This controls the size of the mask 
+       the idea is to match the mask size 
+       with the before/after strip size*/
+    --spike-width: 50px;
+    --spike-height: 60px;
+
+    position: relative;
+    color: black;
+    background: 
+        linear-gradient(
+            to right,
+            #DD7373,
+            #4B3F72
+        );
+}
+
+.spikes::before,
+.spikes::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: var(--spike-height);
+    background: var(--spike-color);
+    /* The webkit prefix is added to work with chrome */
+    -webkit-mask-image: url(assets/triangle3.svg);
+    mask-image: url(assets/triangle3.svg);
+    /* -webkit-mask-size: 
+        var(--spike-width) var(--spike-height); */
+    /* mask-size: 
+        var(--spike-width) var(--spike-height); */
+}
+
+.spikes::before {
+    top: 0;
+}
+
+.spikes::after {
+    bottom: 0;
+    transform: rotate(-0.5turn);
+}
+
+
+
+/* Background image section */
+.backimage {
+    position: relative;
+    background-image: url(assets/triangle.svg);
+}
+
+
+/* Mdn mask section */
+.mdnmask {
+  background-color: #8cffa0;
+  -webkit-mask-image: url(assets/triangle.svg);
+  mask-image: url(assets/triangle.svg);
+}
