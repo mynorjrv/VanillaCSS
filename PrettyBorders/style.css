@@ -191,3 +191,25 @@ section {
   -webkit-mask-image: url(assets/triangle.svg);
   mask-image: url(assets/triangle.svg);
 }
+
+
+
+/* Wavy section */
+.wavy {
+    background: 
+        linear-gradient(
+            to right,
+            #00f260,
+            #0575e6
+        );
+
+    /* Mask created with https://css-generators.com/wavy-shapes/ */
+    --mask:
+        radial-gradient(41.38px at 50% 58.50px,#000 99%,#0000 101%) calc(50% - 60px) 0/120px 51% repeat-x,
+        radial-gradient(41.38px at 50% -28.5px,#0000 99%,#000 101%) 50% 30px/120px calc(51% - 30px) repeat-x,
+        radial-gradient(41.38px at 50% calc(100% - 58.50px),#000 99%,#0000 101%) calc(50% - 60px) 100%/120px 51% repeat-x,
+        radial-gradient(41.38px at 50% calc(100% + 28.50px),#0000 99%,#000 101%) 50% calc(100% - 30px)/120px calc(51% - 30px) repeat-x;
+    -webkit-mask: var(--mask);
+    mask: var(--mask);
+
+}
