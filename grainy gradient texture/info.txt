@@ -1,0 +1,10 @@
+This is a page made by juxtaposed.
+I am just recreating it and playing arround. 
+
+The design can be found on:
+https://codepen.io/Juxtopposed/pen/ZEqOWxv
+
+Texture comes from 
+https://raw.githubusercontent.com/juxtopposed/dailydesigncode/main/ddc-1/src/noise.svg
+
+I used curl to have it locally.

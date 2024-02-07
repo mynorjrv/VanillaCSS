@@ -1,0 +1,259 @@
+/* OPTIONAL STYLES */
+
+@font-face {
+    font-family: "Misto";
+    src:
+        url("https://github.com/juxtopposed/dailydesigncode/blob/main/ddc-1/src/misto.otf") 
+        format("opentype")
+}
+    
+:root {
+    --bg: #000000;
+    --text: #ffffff;
+    --border: #1B1B1B;
+    --red: #C11D1D;
+}
+
+h1 {
+    font-family: "Misto";
+    z-index: 2;
+    font-size: 90px;
+    margin: 0.25em 0 0 0;
+}
+
+h2 {
+    font-family: "Misto";
+    z-index: 2;
+    font-size: 50px;
+}
+
+p {
+    font-family: "Futura";
+    z-index: 2;
+    font-size: 24px;
+}
+
+body {
+    margin: 10em 5em;
+    height: 100vh;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    
+    background-color: var(--bg);
+    color: var(--text);
+    
+}
+
+
+
+/* GRID */
+
+.container {
+    display: grid;
+    gap: 20px;
+    width: 100%;
+    height: fit-content;
+}
+
+.card1 {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    height: fit-content;
+}
+
+.card2 {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 4;
+
+    align-items: flex-start !important; 
+}
+
+.card3 {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+.card4 {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+
+
+
+/* CARD */
+
+.card {
+    position: relative;
+    overflow: hidden;
+    background-color: var(--bg);
+    padding: 1em 3em;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    border: 2px solid var(--border);
+    border-radius: 20px;
+    
+    cursor: pointer;
+}
+
+.card-text {
+    z-index: 2; 
+}
+
+
+
+/* GRAINY TEXTURE */
+.grainy-texture {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-radius: 500px;
+    background: 
+        radial-gradient(
+            circle at 50% 50%, 
+            rgba(27, 27, 27, 0), 
+            rgba(0,0,0, 0.7), 
+            rgba(0,0,0, 1)
+        ), 
+        /* url(
+            https://raw.githubusercontent.com/juxtopposed/dailydesigncode/
+            main/ddc-1/src/noise.svg
+        ) */
+        url(./texture/noise.svg);  
+    z-index: 1;
+    /* Transition uses a property, time and stile */
+    transition: all 0.5s ease;
+    filter: contrast(150%) brightness(300%);
+    opacity: 50%;
+}
+
+/* > is the child operator, this means that this style 
+   will match .gainy-teture class that is inside a .card:hover */
+.card:hover > .grainy-texture {
+    transition: all 0.5s ease;
+    transform: scale(1.2);
+    opacity: 100%;
+}
+
+
+/* Positioning the Grainy Texture inside the cards */
+.one {
+    left: -15em;
+    top: -20em;
+}
+
+.two {
+    left: -25em;
+    top: -20em;
+}
+
+.three {
+    right: -25em;
+    bottom: -25em;
+}
+
+.four {
+    right: -20em;
+    bottom: -20em;
+}
+
+
+
+/* RESPONSIVE */
+
+@media only screen and (max-width: 900px) {
+    .card1, .card2, .card3, .card4 {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    }
+    
+    .card2 {
+    grid-row-start: 2;
+    grid-row-end: 3;
+    }
+    
+    .card3 {
+    grid-row-start: 3;
+    grid-row-end: 4;
+    }
+    
+    .card4 {
+    grid-row-start: 4;
+    grid-row-end: 5;
+    }
+    
+}
+
+
+/* Daily Design + Code Styles */
+/* NOT REQUIRED */
+
+.ddc-static {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1em;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 1em;
+}
+
+.ddc-text, .ddc-link {
+    font-size: 16px;
+    font-weight: normal;
+    font-family: "Futura";
+}
+
+.ddc-link {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    align-items: center;
+    justify-content: center;
+    
+    padding: 1em;
+    border: 2px solid #1B1B1B;
+    border-radius: 5px;
+    
+    text-decoration: none;
+    color: inherit;
+}
+
+.ddc-link:hover {
+    border: 2px solid #515151;
+}
+
+
+/* Not required */
+.youtube {
+    text-decoration: none;
+    position: absolute;
+    padding: 1em 2em;
+    bottom: 1em;
+    right: 1em;
+    z-index: 9999;
+    font-family: 'Roboto';
+    color: #E1E1E1;
+    border: 1px solid #e1e1e1;
+    border-radius: 5px;
+}
+
+.youtube:hover {
+    background-color: rgb(225,225,225,0.14);
+}
